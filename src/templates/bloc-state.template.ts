@@ -14,13 +14,12 @@ function getEquatableBlocStateTemplate (blocName: string): string {
   const snakeCaseBlocName = changeCase.snakeCase(blocName.toLowerCase());
   return `part of '${snakeCaseBlocName}_bloc.dart';
 
-abstract class ${pascalCaseBlocName}State extends Equatable {
+class ${pascalCaseBlocName}State extends Equatable {
   const ${pascalCaseBlocName}State();  
 
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [];
 }
-class ${pascalCaseBlocName}Initial extends ${pascalCaseBlocName}State {}
 `;
 }
 
@@ -29,7 +28,6 @@ function getDefaultBlocStateTemplate (blocName: string): string {
   const snakeCaseBlocName = changeCase.snakeCase(blocName.toLowerCase());
   return `part of '${snakeCaseBlocName}_bloc.dart';
 @immutable
-abstract class ${pascalCaseBlocName}State {}
-class ${pascalCaseBlocName}Initial extends ${pascalCaseBlocName}State {}
+class ${pascalCaseBlocName}State {}
 `;
 }
